@@ -2,6 +2,67 @@
 
 Package **cel** provide tools for creating software that models systems based on **Commands**, **Events**, and **Logs**.
 
+## Examples
+
+cel provide tools for creating software that models systems based on ‘Commands’, ‘Events’, and ‘Logs’.
+//
+Collectively ‘Commands’, ‘Events’, and ‘Logs’ are called ‘Messages’.
+
+USAGE FOR COMMAND
+
+A COMMAND can be created with code similar to:
+
+```javascript
+const c = cel.command(version, name, payload)
+```
+
+For example:
+
+```javascript
+const apiVersion = "1";
+
+const c = cel.command(apiVersion, "LOCK_DOOR", {"from":"john","doorid":"abc123"})
+```
+
+USAGE FOR EVENT
+
+An EVENT can be created with code similar to:
+
+
+```javascript
+const e = cel.event(version, name, payload)
+```
+
+For example:
+
+```javascript
+const apiVersion = "1";
+
+const e = cel.event(apiVersion, "DOOR_LOCKED", {"from":"jane","doorid":"abc123"});
+```
+
+USAGE FOR LOG
+
+A LOG can be created with code similar to:
+
+```javascript
+const l = cel.log(version, name, payload)
+```
+
+For example:
+
+```javascript
+const apiVersion = "1";
+
+const l = cel.command(apiVersion, "DOORS", {
+	"doors": [
+		{"from":"abc123", "is_locked":true},
+		{"from":"def456", "is_locked":false},
+		{"from":"ghi789", "is_locked":false},
+	]
+})
+```
+
 ## JSON
 
 The serialized JSON will look like:
